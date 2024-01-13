@@ -1,4 +1,16 @@
-#heading {
-  color: aqua;
-  font-size: larger;
+.header {
+  display: flex;
+}
+nav > ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  gap: 10;
+}
+.logo {
+  width: 10%;
+}
+.body {
+  display: flex;
+  justify-content: space-between;
 }
