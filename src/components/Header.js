@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CDN_URl } from "../Utils/constants";
+import { Link } from "react-router-dom";
 const Header = () => {
   const [login, setLogin] = useState("Login");
   const handleClick = () => {
@@ -13,8 +14,13 @@ const Header = () => {
       <div className="nav-item">
         <nav>
           <ul>
-            <li>Home</li>
-            <li>About us</li>
+            <li>
+              {" "}
+              <Link to={"/"}>Home</Link>
+            </li>
+            <li>
+              <Link to={"/about"}> About us</Link>
+            </li>
             <li>Blog</li>
             <li>Contact</li>
           </ul>

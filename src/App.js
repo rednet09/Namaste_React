@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import Error from "./components/Error";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import AboutUs from "./components/AboutUs";
 const heading = React.createElement(
   "h1",
   {
@@ -33,9 +36,27 @@ const Applayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
+      <Outlet />
     </div>
   );
 };
 
-root.render(<Applayout />);
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Applayout />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+root.render(<RouterProvider router={appRouter} />);
